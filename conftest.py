@@ -13,7 +13,10 @@ TEST_DATABASE_URL = os.getenv(
 
 os.environ["DATABASE_URL"] = TEST_DATABASE_URL
 
-from main import Base, app, get_db
+from app.database.base import Base
+from app.database.session import get_db
+from app.models import Produto
+from main import app
 
 
 test_engine = create_engine(TEST_DATABASE_URL)
